@@ -1,0 +1,619 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout>
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav" id="navbar">
+    <a href="#" class="nav-logo">SP</a>
+    <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <p class="hero-greeting">
+        <span>Hello there</span>
+        <span class="wave">👋</span>
+      </p>
+      <h1 class="hero-name">Sahil Parupudi</h1>
+      <div class="hero-typed" id="typed-target"></div>
+      <div class="hero-actions">
+        <a href="https://sahil-s-246.github.io/autoCV" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Resume
+        </a>
+        <a href="#experience" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          View My Work
+        </a>
+        <a href="https://github.com/sahil-s-246" class="btn btn-icon" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/sahilparupudi" class="btn btn-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:sahilsrinivas3@gmail.com" class="btn btn-icon" target="_blank" rel="noopener" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-label">About</span>
+      <h2 class="section-title">Who I Am</h2>
+    </div>
+    <div class="reveal" style="max-width: 700px; margin: 0 auto; text-align: center;">
+      <p style="font-size: 1.1rem; line-height: 1.8;">
+        I'm a <strong>Data Science</strong> grad student at <strong>NYU Center for Data Science</strong>, 
+        passionate about building things at the intersection of computer vision, machine learning, and 
+        full-stack engineering. Currently working on data engineering at <strong>LVT Labs</strong> and 
+        computer vision research at <strong>NYU Lu Lab</strong> — detecting grassy trees (bamboo, palms, bananas) 
+        from crowdsourced imagery to study nature-based solutions in human-managed landscapes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <div class="section-alt">
+    <section id="experience">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Experience & Research</span>
+          <h2 class="section-title">Where I've Worked</h2>
+          <p class="section-subtitle">Building real systems across data engineering, computer vision, and ML</p>
+        </div>
+
+        <div class="timeline">
+          <!-- LVT Labs -->
+          <div class="timeline-item reveal">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <div class="timeline-role">Data Engineering Intern</div>
+                  <div class="timeline-company">LVT Labs</div>
+                </div>
+                <div class="timeline-meta">
+                  <span>Jun 2026 – Present</span>
+                  <span>Jersey City, NJ</span>
+                </div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Developing 150+ RESTful API endpoints (FastAPI/Python) across 13 route modules for a multi-role SaaS payables platform, covering commission management, lead allocation, role-scoped dashboards, and multi-format report exports.</li>
+                <li>Writing OpenAPI 3.0.3 contract specs aligned to business analysis documents and building automated integration test suites with standardized schemas (ISO-8601 dates, RBAC enforcement) to support parallel frontend development.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- NYU Lu Lab -->
+          <div class="timeline-item reveal reveal-delay-1">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <div class="timeline-role">Graduate Student Affiliate</div>
+                  <div class="timeline-company">NYU Lu Lab</div>
+                </div>
+                <div class="timeline-meta">
+                  <span>Jun 2026 – Present</span>
+                  <span>New York, NY</span>
+                </div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Building a computer vision pipeline to detect and map grassy trees (bamboo, palms, bananas, rattans) from crowdsourced ground-level imagery to quantify prevalence of these species in human-managed landscapes.</li>
+                <li>Implemented zero-shot detection with Grounding DINO and pixel-level segmentation with SAM2; migrating to a supervised YOLOv11 pipeline (88% accuracy on binary grassy vs. non-grassy classification) trained on a custom-annotated Roboflow dataset.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- XDE Studios -->
+          <div class="timeline-item reveal reveal-delay-2">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <div class="timeline-role">AI/ML Intern</div>
+                  <div class="timeline-company">XDE Studios</div>
+                </div>
+                <div class="timeline-meta">
+                  <span>Oct 2024 – Aug 2025</span>
+                  <span>Pune, India</span>
+                </div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Fine-tuned a YOLOv11 model to detect shipping containers (95% recall) and seal numbers (75% recall); integrated PaddleOCR for accurate OCR on curved and noisy surfaces.</li>
+                <li>Developed a face recognition pipeline for event photo tagging using InsightFace for embedding extraction and HDBSCAN for unsupervised clustering (0.70 silhouette score) and deployed on DigitalOcean.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Rubiscape -->
+          <div class="timeline-item reveal reveal-delay-3">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <div class="timeline-role">Project Intern — Data Science</div>
+                  <div class="timeline-company">Rubiscape</div>
+                </div>
+                <div class="timeline-meta">
+                  <span>Jun 2024 – Sep 2024</span>
+                  <span>Pune, India</span>
+                </div>
+              </div>
+              <ul class="timeline-bullets">
+                <li>Performed RFM and geographic segmentation using K-means clustering (silhouette = 0.65) to identify high-value customer clusters.</li>
+                <li>Identified key statistical drivers of employee turnover by analyzing feature importance within a Random Forest model (0.89 accuracy).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-label">Projects</span>
+      <h2 class="section-title">What I've Built</h2>
+      <p class="section-subtitle">Hackathon wins, research tools, and end-to-end AI applications</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Nexus -->
+      <div class="project-card reveal">
+        <div class="project-card-header">
+          <h3 class="project-title">Nexus</h3>
+          <a href="https://github.com/sahil-s-246/nexus" class="project-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+        <span class="project-badge">Anthropic Hackathon</span>
+        <p class="project-description">
+          Research advisor matching platform that retrieves live faculty data via Linkup Search API, verifies publication and grant activity, 
+          computes dense semantic similarity with Sentence Transformers, and uses Claude for grounded synthesis to generate recommendations.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Sentence Transformers</span>
+          <span class="tech-tag">Claude API</span>
+          <span class="tech-tag">Linkup Search</span>
+          <span class="tech-tag">FastAPI</span>
+        </div>
+      </div>
+
+      <!-- StainAI -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-card-header">
+          <h3 class="project-title">StainAI</h3>
+          <a href="https://github.com/alasteamnyu/rec-sys-nvidia-hackathon" class="project-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+        <span class="project-badge">Dell × NVIDIA — 3rd Place</span>
+        <p class="project-description">
+          Fine-tuned CLIP for stain detection and EfficientNet for fabric classification, integrated with SAM2 for segmentation. 
+          Built FastAPI inference endpoints connecting model predictions to a React Native mobile app.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">CLIP</span>
+          <span class="tech-tag">SAM2</span>
+          <span class="tech-tag">EfficientNet</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">React Native</span>
+        </div>
+      </div>
+
+      <!-- Restaurant Recommendation -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-card-header">
+          <h3 class="project-title">Restaurant Menu Recommender</h3>
+          <a href="https://github.com/sahil-s-246/taisty-backend" class="project-link" target="_blank" rel="noopener" aria-label="View on GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+        <p class="project-description">
+          Hybrid recommendation engine using PyNNDescent-based collaborative filtering and content-based retrieval via Weaviate's vector search. 
+          Integrated Gemini API to re-rank dish recommendations based on user preferences and context-aware prompts.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Weaviate</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Gemini API</span>
+        </div>
+      </div>
+
+      <!-- Visual Math Reasoning -->
+      <div class="project-card reveal reveal-delay-3">
+        <div class="project-card-header">
+          <h3 class="project-title">Visual Math Reasoning Eval</h3>
+        </div>
+        <p class="project-description">
+          Two-phase evaluation pipeline to benchmark symbolic reasoning of multimodal LLMs against structured math expressions and visual hints. 
+          Built automated dataset generation and extraction modules using MongoDB for high-volume model probing.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">Gemini API</span>
+          <span class="tech-tag">DPT</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">OpenRouter</span>
+        </div>
+      </div>
+
+      <!-- AI Sports Ad Generator -->
+      <div class="project-card reveal">
+        <div class="project-card-header">
+          <h3 class="project-title">AI Sports Ad Generator</h3>
+        </div>
+        <p class="project-description">
+          Real-time video analysis pipeline using Gemini API for segment-by-segment event detection, streaming live to a React frontend. 
+          Integrated Groq for AI-generated ad copy triggered by detected game events.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Gemini API</span>
+          <span class="tech-tag">Groq</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Vite</span>
+        </div>
+      </div>
+
+      <!-- Camspeak -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-card-header">
+          <h3 class="project-title">Camspeak</h3>
+        </div>
+        <p class="project-description">
+          Camera-based text extraction and translation tool using OpenCV for image capture, OCRSpace API for text recognition, 
+          and Google Text-to-Speech for translating recognized text into speech output.
+        </p>
+        <div class="project-tech">
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">gTTS</span>
+          <span class="tech-tag">OCR API</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <div class="section-alt">
+    <section id="skills">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Skills</span>
+          <h2 class="section-title">Tech Stack</h2>
+          <p class="section-subtitle">Tools and frameworks I work with daily</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category reveal">
+            <div class="skill-category-icon">🧠</div>
+            <h3 class="skill-category-title">ML Frameworks</h3>
+            <div class="skill-tags">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Ultralytics (YOLO)</span>
+              <span class="tech-tag">Scikit-Learn</span>
+              <span class="tech-tag">Transformers</span>
+              <span class="tech-tag">InsightFace</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-1">
+            <div class="skill-category-icon">⚡</div>
+            <h3 class="skill-category-title">ML Engineering</h3>
+            <div class="skill-tags">
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">MLflow</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">FastMCP</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-2">
+            <div class="skill-category-icon">💻</div>
+            <h3 class="skill-category-title">Languages</h3>
+            <div class="skill-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-3">
+            <div class="skill-category-icon">☁️</div>
+            <h3 class="skill-category-title">Infrastructure & Cloud</h3>
+            <div class="skill-tags">
+              <span class="tech-tag">GCP</span>
+              <span class="tech-tag">AWS</span>
+              <span class="tech-tag">DigitalOcean</span>
+              <span class="tech-tag">Git</span>
+              <span class="tech-tag">Linux</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal">
+            <div class="skill-category-icon">🗄️</div>
+            <h3 class="skill-category-title">Databases & Vector Stores</h3>
+            <div class="skill-tags">
+              <span class="tech-tag">Weaviate</span>
+              <span class="tech-tag">MongoDB Atlas</span>
+              <span class="tech-tag">SQLite</span>
+            </div>
+          </div>
+
+          <div class="skill-category reveal reveal-delay-1">
+            <div class="skill-category-icon">🛠️</div>
+            <h3 class="skill-category-title">Developer Tools</h3>
+            <div class="skill-tags">
+              <span class="tech-tag">VS Code</span>
+              <span class="tech-tag">Selenium</span>
+              <span class="tech-tag">Apps Script</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="section-header reveal">
+      <span class="section-label">Education</span>
+      <h2 class="section-title">Where I've Studied</h2>
+    </div>
+
+    <div class="education-grid">
+      <div class="education-card reveal">
+        <div class="education-school">New York University</div>
+        <div class="education-degree">MS Data Science — Industry Concentration</div>
+        <div class="education-date">Center for Data Science, Courant Institute • Expected May 2027</div>
+        <p class="education-detail">Relevant Coursework: Big Data and Machine Learning, Reinforcement Learning</p>
+      </div>
+
+      <div class="education-card reveal reveal-delay-1">
+        <div class="education-school">Dr. D.Y. Patil Institute of Technology</div>
+        <div class="education-degree">B.E. Computer Engineering</div>
+        <div class="education-date">Pune, India • Jun 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <div class="section-alt">
+    <section id="achievements">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Achievements & Leadership</span>
+          <h2 class="section-title">Highlights</h2>
+        </div>
+
+        <div class="achievements-list">
+          <div class="achievement-item reveal">
+            <div class="achievement-icon">🏆</div>
+            <div class="achievement-content">
+              <h4>Dell × NVIDIA Hackathon — 3rd Place</h4>
+              <p>24-hour hackathon organized by Dell, NVIDIA and AI4Purpose for StainAI</p>
+            </div>
+          </div>
+
+          <div class="achievement-item reveal reveal-delay-1">
+            <div class="achievement-icon">🥇</div>
+            <div class="achievement-content">
+              <h4>CodeCraft — 4th Place</h4>
+              <p>4-round coding competition organized by Computer Society of India, DIT</p>
+            </div>
+          </div>
+
+          <div class="achievement-item reveal reveal-delay-2">
+            <div class="achievement-icon">📜</div>
+            <div class="achievement-content">
+              <h4>DeepLearning.AI</h4>
+              <p>Machine Learning Specialization</p>
+            </div>
+          </div>
+
+          <div class="achievement-item reveal reveal-delay-3">
+            <div class="achievement-icon">📊</div>
+            <div class="achievement-content">
+              <h4>Rubiscape Certification</h4>
+              <p>Advanced Data Visualisation</p>
+            </div>
+          </div>
+
+          <div class="achievement-item reveal">
+            <div class="achievement-icon">👥</div>
+            <div class="achievement-content">
+              <h4>ACES DIT — Leadership</h4>
+              <p>Sr. Data Manager (led team of 4, 1500+ participants) & Jr. Technical Head (automated certificates for 900+ participants)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://github.com/sahil-s-246" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/sahilparupudi" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:sahilsrinivas3@gmail.com" class="footer-link">Email</a>
+      <a href="https://sahil-s-246.github.io/autoCV" class="footer-link" target="_blank" rel="noopener">Resume</a>
+    </div>
+    <p class="footer-copy">© 2026 Sahil Parupudi. Built with Astro.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    import Typed from 'typed.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const typedEl = document.getElementById('typed-target');
+      if (typedEl) {
+        new Typed('#typed-target', {
+          strings: [
+            'MS Data Science @ NYU Center for Data Science',
+            'Computer Vision &amp; NLP Researcher',
+            'Building Full Stack AI Applications',
+            'Data Engineering @ LVT Labs',
+          ],
+          typeSpeed: 40,
+          backSpeed: 25,
+          backDelay: 2000,
+          loop: true,
+          showCursor: true,
+          cursorChar: '|',
+        });
+      }
+    });
+  </script>
+
+  <script is:inline>
+    (function() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const PARTICLE_COUNT = 120;
+      const CONNECTION_DISTANCE = 160;
+      const MOUSE_RADIUS = 140;
+
+      let particles = [];
+      let mouse = { x: -1000, y: -1000 };
+      let w = 0, h = 0;
+
+      function getColors() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        return {
+          particle: isDark ? 'rgba(139, 92, 246,' : 'rgba(99, 102, 241,',
+          line: isDark ? 'rgba(139, 92, 246,' : 'rgba(99, 102, 241,',
+        };
+      }
+
+      function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        w = window.innerWidth;
+        h = window.innerHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          const baseOpacity = 0.25 + Math.random() * 0.5;
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            radius: 1.8 + Math.random() * 2.5,
+            opacity: baseOpacity,
+            baseOpacity: baseOpacity,
+          });
+        }
+      }
+
+      function animate() {
+        const colors = getColors();
+        ctx.clearRect(0, 0, w, h);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+
+          // Mouse repulsion
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MOUSE_RADIUS && dist > 0) {
+            const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
+            p.vx += (dx / dist) * force * 0.6;
+            p.vy += (dy / dist) * force * 0.6;
+            p.opacity = Math.min(1, p.baseOpacity + force * 0.5);
+          } else {
+            p.opacity += (p.baseOpacity - p.opacity) * 0.02;
+          }
+
+          p.vx *= 0.98;
+          p.vy *= 0.98;
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) { p.x = 0; p.vx *= -1; }
+          if (p.x > w) { p.x = w; p.vx *= -1; }
+          if (p.y < 0) { p.y = 0; p.vy *= -1; }
+          if (p.y > h) { p.y = h; p.vy *= -1; }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = colors.particle + p.opacity + ')';
+          ctx.fill();
+        }
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const a = particles[i];
+            const b = particles[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < CONNECTION_DISTANCE) {
+              const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.2;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = colors.line + alpha + ')';
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      resize();
+      initParticles();
+      requestAnimationFrame(animate);
+
+      window.addEventListener('resize', function() {
+        resize();
+        initParticles();
+      });
+      window.addEventListener('mousemove', function(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+      document.addEventListener('mouseleave', function() {
+        mouse.x = -1000;
+        mouse.y = -1000;
+      });
+    })();
+  </script>
+</BaseLayout>
+
